@@ -26,6 +26,12 @@ nav {
       }
     }
   }
+
+// Variables
+@import "base/variables";
+
+// Default styles
+@import "base/default";
 // Bootstrap
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -34,4 +40,6 @@ nav {
 @import "base/variables";
 
 // Partials - main css files
+@import "partials/*";
 @import "partials/layout/*";
+@import "responsive/*";
