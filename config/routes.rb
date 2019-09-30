@@ -7,5 +7,11 @@ Rails.application.routes.draw do
     get 'login', to: 'devise/sessions#new'
     get 'signup', to: 'devise/registrations#new'
   end
-
+  resources :movies do
+    collection do
+      get 'hobby'
+      get 'study'
+      get 'team'
+    end
+  end
 end
