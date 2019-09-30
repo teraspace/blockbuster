@@ -1,0 +1,23 @@
+<div id="branch-main-content" class="container">
+  <div class="row">
+    <h1 class="page-title"><%= page_title %></h1>
+    <%= render 'movies/branch/create_new_movie', branch: branch %>
+  </div><!-- row -->
+<div class="row">
+  <%= render  'posts/branch/search_form', 
+              branch: branch,
+              search_placeholder: search_placeholder %>
+</div><!-- row -->
+
+
+  <div class="row">
+    <div class="col-sm-12" id="feed">
+      <%= render @movies %>
+      <%= render no_movies_partial_path %>		
+    </div>
+  </div><!-- row -->	
+
+  <div class="infinite-scroll">
+    <%= will_paginate @movies %>
+  </div>
+</div><!-- container -->

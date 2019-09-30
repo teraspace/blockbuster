@@ -1,0 +1,31 @@
+<%= bootstrap_form_for(@movie) do |f| %>
+  <%= f.text_field  :name, 
+                    maxlength: 100, 
+                    placeholder: 'Name', 
+                    class: 'form-control',
+                    required: true, 
+                    minlength: 2
+                   %>
+  <%= f.text_area :synopsis, 
+                  rows: 6,
+                  required: true, 
+                  minlength: 20,
+                  maxlength: 1000,
+                  placeholder: 'Describe movie content.', 
+                  class: 'form-control' %>
+    <%= f.text_field  :country, 
+                    maxlength: 100, 
+                    placeholder: 'Country origin', 
+                    class: 'form-control',
+                    required: true, 
+                    minlength: 2
+                  %>
+    <%= f.text_field  :producer, 
+                    maxlength: 100, 
+                    placeholder: 'Producer\'s name', 
+                    class: 'form-control',
+                    required: true, 
+                    minlength: 5
+                    %>                    
+  <%= f.submit "Create a movie", class: 'form-control' %>
+<% end %>

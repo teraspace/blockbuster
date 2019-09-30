@@ -1,17 +1,39 @@
 <div class="col-sm-3 single-post-card" id=<%= movie_path(movie.id) %>>
   <div class="card">
     <div class="card-block">
-      <h4 class="post-text">
+      <h4 class="posted-name post-text">
         <%= truncate(movie.name, :length => 60) %>
       </h4>
       <div class="post-content">
-        <div class="posted-by">Posted by <%= movie.user.name %></div>
-        <h3><%= movie.name %></h3> 
-         <p><%= movie.producer %></p>
-          <p><%= movie.country %></p>
-           <p><%= movie.synopsis %></p>
-        <%= link_to "I'm interested", movie_path(movie.id), class: 'interested' %>
+       
+        <div class="posted-producer">Producer: <%= movie.producer %></div>
+        <div class="posted-country">Country: <%= movie.country %></div>
+        <div class="posted-synopsis"><%= movie.synopsis %></div>
+        <div class="">Posted by <%= movie.user.name %></div>
       </div>
     </div>
+    <div class="col-sm-4">
+      <%= link_to "Edit", controller: "movies", action: "edit", :id => movie.id %>
+      <%= link_to 'Destroy', '#', "data-toggle"=>"modal", "data-target" => "#delete-#{movie.id}" %>
+
+    </div>
+      <div class="modal fade" id="delete-<%= movie.id %>" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">Confirmation Box</button>
+          </div>
+          <div class="modal-body">
+            <p>¿Are you sure to delete this movie?</p>
+          </div>
+          <div class="modal-footer">
+            <div class="modal-footer">
+              <%= link_to 'Delete', movie_path(movie), method: :delete, "data-toggle"=>"modal", :class => 'btn btn-danger' %>
+                <a href="#" data-dismiss="modal" class="btn btn-warning">Cancel</a>
+            </div>
+          </div>
+        </div>
+      </div>
+   </div>
   </div><!-- card -->
 </div><!-- col-sm-3 -->

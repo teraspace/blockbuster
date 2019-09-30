@@ -1,0 +1,9 @@
+<div class="single-post-list" id=<%= movie_path(movie.id) %>>
+  <%= truncate(movie.name, :length => 60) %>
+  <div class="post-content">
+    <div class="posted-by">Posted by <%= movie.user.name %></div>
+    <h3><%= movie.name %></h3> 
+    <p><%= movie.synopsis %></p>
+    <%= link_to "I'm interested", movie_path(movie.id), class: 'interested' %> 
+  </div>
+</div>
